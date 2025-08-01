@@ -1,6 +1,7 @@
 package com.metaphorce.CineMagic.controladores;
 
 
+import com.metaphorce.CineMagic.excepciones.FuncionNoEncontradaException;
 import com.metaphorce.CineMagic.excepciones.PeliculaNoEncontradaExcepcion;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,14 @@ public class HandlerAdviceControlador {
 
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
 
+    }
+
+    @ExceptionHandler(FuncionNoEncontradaException.class)
+    public ResponseEntity<?> funcionNoEncontrada(FuncionNoEncontradaException excepcion){
+        Map<String, Object> body = new HashMap<>();
+        body.put("error", "Not Found");
+        body.put("message", excepcion.getMessage());
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
 }

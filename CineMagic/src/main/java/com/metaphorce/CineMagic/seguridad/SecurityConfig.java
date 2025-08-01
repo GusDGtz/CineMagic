@@ -29,9 +29,18 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // ya que no usamos cookies
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/CineMagic/auth/iniciar-sesion","/CineMagic/publico/**","/CineMagic/auth/registrarse","/CineMagic/auth/usuarios").permitAll()
-                        .requestMatchers("/CineMagic/boletos","/CineMagic/funcion/cartelera","/CineMagic/espectador/**").hasRole("USER")
-                        .requestMatchers("/CineMagic/administracion/**", "/CineMagic/funcion/modificar").hasRole("ADMIN")
+                        .requestMatchers(
+                                // Registro y autenticacion
+                                "/CineMagic/auth/iniciar-sesion","/CineMagic/auth/registrarse","/CineMagic/auth/usuarios",
+                                // Ver funciones
+                                "/CineMagic/funcion/cartelera", "/CineMagic/funcion/*",
+                                // Ver peliculas
+                                "/CineMagic/publico/peliculas","/CineMagic/publico/peliculas/*"
+                                ).permitAll()
+                        .requestMatchers(
+                                "/CineMagic/espectador/*").hasRole("USER")
+                        .requestMatchers(
+                                "/CineMagic/administracion/**", "/CineMagic/funcion/modificar-horario").hasRole("ADMIN")
                         .anyRequest().denyAll()
                 )
         .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
