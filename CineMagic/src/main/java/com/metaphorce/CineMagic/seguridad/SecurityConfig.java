@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/CineMagic/auth/iniciar-sesion","/CineMagic/publico/**","/CineMagic/auth/registrarse","/CineMagic/auth/usuarios").permitAll()
-                        .requestMatchers("/CineMagic/boletos","/CineMagic/funcion/cartelera").hasRole("USER")
+                        .requestMatchers("/CineMagic/boletos","/CineMagic/funcion/cartelera","/CineMagic/espectador/**").hasRole("USER")
                         .requestMatchers("/CineMagic/administracion/**", "/CineMagic/funcion/modificar").hasRole("ADMIN")
                         .anyRequest().denyAll()
                 )

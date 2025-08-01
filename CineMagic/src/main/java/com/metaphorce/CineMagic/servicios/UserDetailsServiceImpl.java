@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     // Este metodo permite buscar un usuario por su Username y regresa un UserDetails
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // La excepción es necesaria, por alguna razón
+        // La excepción es necesaria
         Usuario usuario = usuarioRepositorio.findByNombreUsuario(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
         // BUSCAMOS los permisos o roles de este usuario y los guardamos
