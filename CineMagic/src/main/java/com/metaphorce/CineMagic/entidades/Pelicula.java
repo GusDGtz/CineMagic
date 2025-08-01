@@ -1,7 +1,10 @@
 package com.metaphorce.CineMagic.entidades;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name="pelicula")
@@ -13,6 +16,10 @@ public class Pelicula {
     private String director_pelicula;
     private String sinopsis_pelicula;
     private Integer boletos_vendidos;
+
+    @OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Resenia> resenias;
 
     public Pelicula() {
     }
@@ -58,5 +65,13 @@ public class Pelicula {
 
     public void setBoletos_vendidos(Integer boletos_vendidos) {
         this.boletos_vendidos = boletos_vendidos;
+    }
+
+    public List<Resenia> getResenias() {
+        return resenias;
+    }
+
+    public void setResenias(List<Resenia> resenias) {
+        this.resenias = resenias;
     }
 }
