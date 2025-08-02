@@ -89,6 +89,10 @@ public class BoletoServicioImpl implements BoletoServicio{
             asiento.setBoleto(boleto);
             asientoRepositorio.save(asiento);
         }
+        Integer asientosComprados = asientos.size();
+        funcion.getPelicula().setBoletos_vendidos(funcion.getPelicula().getBoletos_vendidos() + asientosComprados);
+        funcionRepositorio.save(funcion);
+
 
         return pago;
     }
