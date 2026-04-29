@@ -35,7 +35,9 @@ public class SecurityConfig {
                                 // Ver funciones
                                 "/CineMagic/funcion/cartelera", "/CineMagic/funcion/*",
                                 // Ver peliculas
-                                "/CineMagic/publico/peliculas","/CineMagic/publico/peliculas/*"
+                                "/CineMagic/publico/peliculas","/CineMagic/publico/peliculas/*",
+                                // Swagger - Documentacion de Endpoints
+                                "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html"
                                 ).permitAll()
                         .requestMatchers(
                                 "/CineMagic/espectador/*").hasRole("USER")
