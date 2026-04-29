@@ -25,7 +25,7 @@ public class FuncionControlador {
     }
 
     @PreAuthorize( "hasRole('ADMIN')")
-    @PostMapping("/modificar-horario")
+    @PutMapping("/modificar-horario")
     public Funcion modificarFuncion(@RequestBody @Valid FuncionModificada funcion){
 
         return servicio.modificarFuncion(funcion);
