@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
-@Table(name="asiento")
+@Table(name="Asiento")
 public class Asiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

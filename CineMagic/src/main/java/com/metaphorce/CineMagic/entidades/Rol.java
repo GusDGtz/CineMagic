@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
-@Table(name="rol")
+@Table(name="Rol")
 public class Rol implements GrantedAuthority {
     // ATRIBUTOS
     @Id

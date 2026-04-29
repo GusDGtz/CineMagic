@@ -3,7 +3,7 @@ package com.metaphorce.CineMagic.entidades;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="funcion")
+@Table(name="Funcion")
 public class Funcion {
     // ATRIBUTOS
     @Id

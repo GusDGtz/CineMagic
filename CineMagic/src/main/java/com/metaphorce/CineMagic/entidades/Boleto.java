@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.data.annotation.TypeAlias;
 
 @Entity
-@Table(name="boleto")
+@Table(name="Boleto")
 public class Boleto {
     // ATRIBUTOS
     @GeneratedValue(strategy = GenerationType.IDENTITY)

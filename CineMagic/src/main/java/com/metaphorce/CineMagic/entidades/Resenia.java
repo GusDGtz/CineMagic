@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Min;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name="resenia")
+@Table(name="Resenia")
 public class Resenia {
     // ATRIBUTOS
     @Id
