@@ -43,7 +43,7 @@ public class SecurityConfig {
                                 "/CineMagic/espectador/*").hasRole("USER")
                         .requestMatchers(
                                 "/CineMagic/administracion/**", "/CineMagic/funcion/modificar-horario").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
         .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
