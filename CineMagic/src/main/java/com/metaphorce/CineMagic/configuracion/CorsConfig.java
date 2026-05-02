@@ -17,7 +17,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Permitir todos los endpoints
-                .allowedOrigins("https://tu-app-frontend.netlify.app") // URL de tu frontend
+                .allowedOrigins("https://celadon-fox-5844ad.netlify.app") // URL de tu frontend
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");
     }
